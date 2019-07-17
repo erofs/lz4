@@ -898,7 +898,7 @@ _next_match:
             }
 
             if ((outputLimited) &&    /* Check output buffer overflow */
-                (unlikely(op + (1 + LASTLITERALS) + (matchCode>>8) > olimit)) ) {
+                (unlikely(op + (1 + LASTLITERALS) + (matchCode+240)/255 > olimit)) ) {
                 if (outputLimited == limitedOutput)
                   return 0;
                 if (outputLimited == fillOutput) {
